@@ -1,0 +1,1 @@
+/usr/bin/c++   -std="c++17"   CMakeFiles/War.dir/main.cpp.o CMakeFiles/War.dir/war.cpp.o  -o War -rdynamic 

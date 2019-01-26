@@ -1,0 +1,26 @@
+#IncludeRegexLine: ^[ 	]*#[ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/ryan/repos/OOP/Assignment 1 War/main.cpp
+iostream
+-
+war.cpp
+/home/ryan/repos/OOP/Assignment 1 War/war.cpp
+vector
+-
+
+/home/ryan/repos/OOP/Assignment 1 War/war.cpp
+war.hpp
+/home/ryan/repos/OOP/Assignment 1 War/war.hpp
+vector
+-
+
+/home/ryan/repos/OOP/Assignment 1 War/war.hpp
+vector
+-
+
