@@ -1,5 +1,5 @@
 #include <iostream>
-#include "war.cpp"
+#include "war.hpp"
 
 #include <vector>
 

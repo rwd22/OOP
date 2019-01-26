@@ -1,6 +1,7 @@
 #ifndef WAR_HPP_INCLUDED
 #define WAR_HPP_INCLUDED
 
+
 #include <vector>
 
 enum Suit{
