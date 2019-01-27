@@ -21,20 +21,42 @@ int main()
     bool endgame = false;
     int warcount = 0;
     int warwin = 0;
+    int winner = 0;
 
 
     vector<Card>::iterator itone;
      vector<Card>::iterator ittwo;
 
+    while( endgame == false)
+    {
+        if(one.usable.cs.empty() == true && one.wins.cs.empty() == true)
+        {
+            winner = 2;
+            endgame = true;
+        }
+        else if(two.usable.cs.empty() == true && two.wins.cs.empty() == false)
+        {
+            winner = 1;
+            endgame = true;
+        }
+        if(one.usable.cs.empty() == true && one.wins.cs.empty() == false)
+        {
+            one.usable.cs = one.wins.cs;
+            one.wins.cs.clear();
 
-    //while( endgame == false)
-   // {
+        }
+        if(two.usable.cs.empty() == true && two.wins.cs.empty() == false)
+        {
+            two.usable.cs = two.wins.cs;
+            two.wins.cs.clear();
+
+        }
 
         loopFlag = true;
 
         do  //validation for the file name
         {
-            std::cout << "Press A to play a card." << endl;
+            std::cout << "Enter A to play a card." << endl;
             cin >> key;
 
             if(key != "A")    //checking to see if the file exists
@@ -56,8 +78,9 @@ int main()
             one.wins.cs.push_back(one.usable.cs[one.usable.cs.size()]);
             one.wins.cs.push_back(two.usable.cs[two.usable.cs.size()]);
 
-            one.wins.cs.pop_back();
-            two.wins.cs.pop_back();
+            one.usable.cs.pop_back();
+            two.usable.cs.pop_back();
+
         }
         else if(one.usable.cs[one.usable.cs.size()-1].rank < two.usable.cs[two.usable.cs.size()-1].rank)
         {
@@ -66,8 +89,8 @@ int main()
             two.wins.cs.push_back(one.usable.cs[one.usable.cs.size()]);
             two.wins.cs.push_back(two.usable.cs[two.usable.cs.size()]);
 
-            one.wins.cs.pop_back();
-            two.wins.cs.pop_back();
+            one.usable.cs.pop_back();
+            two.usable.cs.pop_back();
         }
         else
         {
@@ -80,6 +103,7 @@ int main()
             //now set to two cards forward, check value and give winner the six cards ( card just played, card after, and card compared for the war for each player
 
             warloop = true;
+            warcount = 0;
 
             while(warloop == true)
             {
@@ -96,8 +120,6 @@ int main()
                     warcount++;
 
                     warwin = 1;
-
-
 
                     warloop = false;
 
@@ -121,6 +143,7 @@ int main()
 
                     warcount++;
                 }
+
             }
 
             if(warwin == 1)
@@ -142,14 +165,14 @@ int main()
                     one.wins.cs.push_back(*itone);
                     one.wins.cs.push_back(*ittwo);
 
-                    one.wins.cs.pop_back();//war card
-                    two.wins.cs.pop_back();
+                    one.usable.cs.pop_back();//war card
+                    two.usable.cs.pop_back();
 
-                    one.wins.cs.pop_back();//middle card
-                    two.wins.cs.pop_back();
+                    one.usable.cs.pop_back();//middle card
+                    two.usable.cs.pop_back();
 
-                    one.wins.cs.pop_back();//compared for war
-                    two.wins.cs.pop_back();
+                    one.usable.cs.pop_back();//compared for war
+                    two.usable.cs.pop_back();
 
                         warcount--;
                 }
@@ -174,29 +197,25 @@ int main()
                     two.wins.cs.push_back(*itone);
                     two.wins.cs.push_back(*ittwo);
 
-                    one.wins.cs.pop_back();//war card
-                    two.wins.cs.pop_back();
+                    one.usable.cs.pop_back();//war card
+                    two.usable.cs.pop_back();
 
-                    one.wins.cs.pop_back();//middle card
-                    two.wins.cs.pop_back();
+                    one.usable.cs.pop_back();//middle card
+                    two.usable.cs.pop_back();
 
-                    one.wins.cs.pop_back();//compared for war
-                    two.wins.cs.pop_back();
+                    one.usable.cs.pop_back();//compared for war
+                    two.usable.cs.pop_back();
 
                     warcount--;
                 }
                 warwin = 0;
 
             }
-
-
-
-
-
-
         }
 
-    //}
+    }
+
+    cout << "Winner is:" << winner << endl;
 
 
 
