@@ -43,6 +43,7 @@ struct Deck{
     std::vector <Card> cs;
 
     void make();
+    void cut(Deck &, Deck &);
 };
 
 struct Player{
