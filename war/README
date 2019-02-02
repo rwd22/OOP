@@ -1,1 +1,3 @@
-Add problem description
+The baisic elements of the "game" inclue the Suits, Ranks, the Cards, the Decks, and the players.
+
+The Cards each contain one suit and rank where the rank is used to assess the cards ranking in the game. Decks contain several cards acessed for different parts of the game (i.e. dividing the cards out to the players or being the player's usable hand). Players each hold two decks, one being their usable hand and the other being the discard pile of the cards that they have won from the "battles" in war. The wins deck is subbed into the player's usable hand whenever the player runs out of cards in order to continue the game. 

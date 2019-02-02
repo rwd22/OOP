@@ -1,16 +1,12 @@
 #include "war.hpp"
 
-
 #include <vector>
 #include <algorithm>
 #include <random>
 #include <ctime>
 #include <chrono>
 
-
-
-
-void Deck::make(){
+void Deck::make(){  //function for generating the starting deck of cards with all possible cards
 
     Card c;
     for (int i = 0; i < 13; ++i){
@@ -23,7 +19,8 @@ void Deck::make(){
     }
 }
 
-void Deck::cut(Deck & P1, Deck & P2){
+void Deck::cut(Deck & P1, Deck & P2){   //shuffles a deck and splits it in two for the two players to use
+
     unsigned seed = std::chrono::system_clock::now().time_since_epoch().count();
     auto rng = std::default_random_engine (seed);
     std::shuffle(std::begin(cs), std::end(cs), rng);
