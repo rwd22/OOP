@@ -5,18 +5,23 @@
 #include <random>
 #include <ctime>
 #include <chrono>
-
 void Deck::make(){  //function for generating the starting deck of cards with all possible cards
 
-    Card c;
-    for (int i = 0; i < 13; ++i){
+for (int i = 0; i < 14; ++i){
         for (int j = 0; j < 4; ++j){
 
-            c.suit = (Suit)j;
-            c.rank = (Rank)i;
+//(Rank)i,(Suit)j);
+
+            Card c;
+            c.set_Suit((Suit)j);
+            c.set_Rank((Rank)i);
+
+            //c.suit = (Suit)j;
+            //c.rank = (Rank)i;
             cs.push_back(c);
         }
     }
+
 }
 
 void Deck::cut(Deck & P1, Deck & P2){   //shuffles a deck and splits it in two for the two players to use

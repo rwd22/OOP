@@ -17,6 +17,8 @@ inline std::ostream & operator<<(std::ostream & os, Suit s){    //overloaded Ost
     case Diamonds: return os << "D";
     case Clubs: return os << "C";
     case Spades: return os << "S";
+    default:
+        return os << "oops";
     }
 }
 
@@ -56,11 +58,28 @@ inline std::ostream & operator<<(std::ostream & os, Rank r){    //overloaded Ost
     }
 }
 
-struct Card{    //Card structure, holds a suit and a rank for a card
+class Card{    //Card structure, holds a suit and a rank for a card
 
-    Suit suit;
+    public:
+        Card() {};
 
-    Rank rank;
+        void set_Suit(Suit suit)
+        {
+            data = data | suit;
+            data = data << 4;
+        }
+        void set_Rank(Rank rank)
+        {
+            data = data | rank;
+        }
+
+        Rank get_rank() const {return(Rank) (data & 0xf); }
+        Suit get_suit() const {return(Suit) (data >> 4 & 0xf); }
+
+    private:
+
+        unsigned int data = 0;
+
 };
 
 struct Deck{    //deck struct, holds cards and can make a full deck and split that among two players

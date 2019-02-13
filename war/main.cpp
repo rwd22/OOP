@@ -3,6 +3,9 @@
 
 int main()
 {
-    play();
+    Game g;
+    g.single();
+
+
     return 0;
 }
