@@ -17,8 +17,6 @@ inline std::ostream & operator<<(std::ostream & os, Suit s){    //overloaded Ost
     case Diamonds: return os << "D";
     case Clubs: return os << "C";
     case Spades: return os << "S";
-    default:
-        return os << "oops";
     }
 }
 
