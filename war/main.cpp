@@ -1,11 +1,10 @@
 #include <iostream>
-#include "game.hpp"
+#include "war.hpp"
 
 int main()
 {
     Game g;
     g.single();
-
 
     return 0;
 }
