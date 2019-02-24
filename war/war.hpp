@@ -3,6 +3,9 @@
 
 #include <vector>
 #include <ostream>
+#include <cassert>
+
+
 
 enum Suit{  //enumeration for suits
     Hearts,
@@ -56,6 +59,36 @@ inline std::ostream & operator<<(std::ostream & os, Rank r){    //overloaded Ost
     }
 }
 
+enum Color{
+	Black,
+	Red,
+};
+
+inline std::ostream & operator<<(std::ostream& os, Color c)
+{
+  return os << (c == Black ? "B" : "R");
+}
+
+
+class Joker{
+	public:
+		Joker(Color c)
+			: color(c)
+			{}
+			
+		Color get_color() const {return color;}
+		
+	private:
+		Color color;
+};
+
+inline std::ostream & operator<<(std::ostream& os, Joker c)
+{
+  return os << c.get_color();
+}
+
+
+
 class Card{    //Card structure, holds a suit and a rank for a card
 
     public:
@@ -79,6 +112,104 @@ class Card{    //Card structure, holds a suit and a rank for a card
         unsigned int data = 0;
 
 };
+
+inline std::ostream& operator<<(std::ostream& os, Card c)
+{
+  return os << c.get_suit() << c.get_rank();
+}
+
+
+union CardData
+{
+	CardData()
+	: sc()
+	{}
+	
+	CardData(Color c)
+		: jc(c)
+	{}
+	
+	Card sc;
+	Joker jc;
+};
+
+enum CardType
+{
+	Standard,
+	Joker,
+};
+
+class PlayingCard
+{
+	public:
+		PlayingCard()
+			: tag(Standard), data()
+		{}
+		
+		PlayingCard(Color c)
+			:tag(Joker), data(c)
+		{}
+		
+		bool is_standard() const { 
+			return tag == Standard;
+		}
+
+		bool is_joker() const { 
+			return tag == Joker;
+		}
+		
+		Rank get_rank() const {
+			assert(is_standard());
+			return data.sc.get_rank();
+		}
+
+		Suit get_suit() const { 
+			assert(is_standard());
+			return data.sc.get_suit();
+		}
+
+		Color get_color() const { 
+			assert(is_joker());
+			return data.jc.get_color();
+		}
+
+	private:
+		CardType tag;
+		CardData data;
+};
+
+
+
+
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
 
 struct Deck{    //deck struct, holds cards and can make a full deck and split that among two players
 

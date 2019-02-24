@@ -39,3 +39,6 @@ void Deck::cut(Deck & P1, Deck & P2){   //shuffles a deck and splits it in two f
         P2.cs.push_back(cs[i]);
     }
 }
+
+
+
