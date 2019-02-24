@@ -76,27 +76,7 @@ main()
 
     tetrom.rotation(rotate);
 
-	    ///////Tick//////
-		if (timer > delay) {
-		  for (int i = 0; i < 4; i++) {
-			b[i] = a[i];
-			a[i].y += 1;
-		  }
-
-		  if (!check()) {
-			for (int i = 0; i < 4; i++)
-			  field[b[i].y][b[i].x] = colorNum;
-
-			colorNum = 1 + rand() % 7;
-			int n = rand() % 7;
-			for (int i = 0; i < 4; i++) {
-			  a[i].x = figures[n][i] % 2;
-			  a[i].y = figures[n][i] / 2;
-			}
-		  }
-
-		  timer = 0;
-		}
+	tetrom.ticking(timer, delay, colorNum);
 
     tetrom.lineCheck();
 
