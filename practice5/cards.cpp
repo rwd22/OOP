@@ -40,7 +40,7 @@ void getColor(Card const& c)    //prints card color
 {
     if(c.type == Card::Joker)
     {
-        std::cout << c << std::endl;
+        std::cout << static_cast<JokerC const&>(c).color << std::endl;
 
     }
     else

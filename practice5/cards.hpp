@@ -1,5 +1,6 @@
 #ifndef CARDS_HPP_INCLUDED
 #define CARDS_HPP_INCLUDED
+#include <vector>
 
 enum Suit { //suit enumerator
     Hearts,
@@ -72,13 +73,13 @@ struct Card{    //Card structure
 
     };
 
-    void cardType(Card const& c);    //query type of card
-    void getColor(Card const& c);   //print a card's color
-
     Card(Type t) : type(t) {}
 
     Type type;
 };
+
+	void cardType(Card const& c);    //query type of card
+    void getColor(Card const& c);   //print a card's color
 
 std::ostream& operator<<(std::ostream& os, Card const& c);  //ostream for cards
 
@@ -102,5 +103,4 @@ struct JokerC : Card{   //joker structure
 };
 
 std::ostream& operator<<(std::ostream& os, JokerC const& c);    //ostream for jokers
-
 #endif // CARDS_HPP_INCLUDED
