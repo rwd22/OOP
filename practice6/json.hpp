@@ -3,6 +3,7 @@
 #include <algorithm>
 #include <string>
 #include <vector>
+#include <ostream>
 #include <unordered_map>
 
 namespace json
@@ -143,11 +144,17 @@ namespace json
     }
   };
   
-  struct Post : Value
+  struct Post
   {
 	  std::string Title;
 	  std::string Author;
   };
+  
+  inline std::ostream & operator<<(std::ostream& os, Post p)
+	{
+	  return os << "Title: " << p.Title << " Author ID: "<< p.Author;
+	}
+  
 
 
   // Operations
