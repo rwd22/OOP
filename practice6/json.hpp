@@ -17,6 +17,7 @@ namespace json
   struct String;
   struct Array;
   struct Object;
+  struct Post;
 
 
   // A "visitor" defines the "table" used
@@ -34,6 +35,7 @@ namespace json
     virtual void visit(String const& s) { }
     virtual void visit(Array const& a) { }
     virtual void visit(Object const& o) { }
+	virtual void visit(Post const& p) { }
   };
 
   // Computes the size (number of nodes) in
@@ -144,8 +146,12 @@ namespace json
     }
   };
   
-  struct Post
+  struct Post : Value
   {
+	void accept(Visitor& vis) const {
+      return vis.visit(*this);
+    }
+	
 	  std::string Title;
 	  std::string Author;
   };
