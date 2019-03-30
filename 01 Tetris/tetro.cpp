@@ -50,6 +50,7 @@ void Tetrominoes::movement(int dx)
 	void Tetrominoes::ticking(float & timer, float & delay, int & colorNum)
 	{
 		    ///////Tick//////
+			int gover = a[0].y;
 		if (timer > delay) {
 		  for (int i = 0; i < 4; i++) {
 			b[i] = a[i];
@@ -57,6 +58,8 @@ void Tetrominoes::movement(int dx)
 		  }
 
 		  if (!check()) {
+
+			  
 			for (int i = 0; i < 4; i++)
 			  field[b[i].y][b[i].x] = colorNum;
 
@@ -70,6 +73,7 @@ void Tetrominoes::movement(int dx)
 
 		  timer = 0;
 		}
+
 	}
 	
 	void Tetrominoes::lineCheck()
@@ -86,5 +90,12 @@ void Tetrominoes::movement(int dx)
 		  if (count < N)
 			k--;
 		}
+		
+		if (field[0][N])	//technical game over. (forced game freeze)
+		{
+			while(true)
+			{}
+		}
+
 	}
 	

@@ -46,6 +46,7 @@ main()
   bool rotate = 0;
   int colorNum = 1;
   float timer = 0, delay = 0.3;
+  int checker =0;
 
   Clock clock;
 
@@ -75,8 +76,12 @@ main()
     tetrom.movement(dx);
 
     tetrom.rotation(rotate);
+	
+	
 
 	tetrom.ticking(timer, delay, colorNum);
+	
+	
 
     tetrom.lineCheck();
 
