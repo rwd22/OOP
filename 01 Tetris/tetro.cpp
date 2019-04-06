@@ -60,7 +60,7 @@ void Tetrominoes::movement(int dx)
 			for (int i = 0; i < 4; i++)
 			  field[b[i].y][b[i].x] = colorNum;
 
-			colorNum = 1 + rand() % 8;
+			colorNum = 1 + rand() % 9;
 			int n = rand() % 7;
 			for (int i = 0; i < 4; i++) {
 			  a[i].x = figures[n][i] % 2;
@@ -95,7 +95,7 @@ void Tetrominoes::movement(int dx)
 
 	}
 	
-	void Multiclear::sptick(float & timer, float & delay, int & colorNum)
+	void Sideclear::sptick(float & timer, float & delay, int & colorNum)
 	{
 		    ///////Tick//////
 			int gover = a[0].y;
@@ -118,6 +118,46 @@ void Tetrominoes::movement(int dx)
 				for (int j = 0; j < N; j++)
 				{
 					field[b[i].y][j] = field[0][0];
+					
+				}
+			}
+
+			colorNum = 1 + rand() % 8;
+			int n = rand() % 7;
+			for (int i = 0; i < 4; i++) {
+			  a[i].x = figures[n][i] % 2;
+			  a[i].y = figures[n][i] / 2;
+			}
+		  }
+
+		  timer = 0;
+		}
+
+	}
+	
+	void Verticlear::vtick(float & timer, float & delay, int & colorNum)
+	{
+		    ///////Tick//////
+			int gover = a[0].y;
+		if (timer > delay) {
+		  for (int i = 0; i < 4; i++) {
+			b[i] = a[i];
+			a[i].y += 1;
+		  }
+
+		  if (!check()) {
+
+			  
+			for (int i = 0; i < 4; i++)
+			{
+			  field[b[i].y][b[i].x] = colorNum;	//sets feild to color of block. make it delete these too
+			}	
+						
+			for (int i = 0; i < 4; i++)
+			{
+				for (int j = 0; j < M; j++)
+				{
+					field[j][b[i].x] = field[0][0];
 					
 				}
 			}

@@ -37,9 +37,13 @@ struct Tetrominoes{
 
 };
 
-// special object able to clear cross lines (+) from where it is
-struct Multiclear: Tetrominoes{
+// special object able to clear cross lines (-) from where it is
+struct Sideclear: Tetrominoes{
 		void sptick(float & timer, float & delay, int & colorNum);
+};
+// special object made to clear vertically
+struct Verticlear: Tetrominoes{
+		void vtick(float & timer, float & delay, int & colorNum);
 };
 
 #endif

@@ -31,7 +31,9 @@ main()
 	
 	Tetrominoes tetrom;
 	
-	Multiclear special;
+	Sideclear special;
+	
+	Verticlear vert;
 	
   srand(time(0));
 
@@ -86,6 +88,18 @@ main()
 		special.sptick(timer, delay, colorNum);
 
 		special.lineCheck(gmOvr);
+
+	}
+	else if(colorNum == 9)
+	{
+	
+		vert.movement(dx);
+
+		vert.rotation(rotate);
+
+		vert.vtick(timer, delay, colorNum);
+
+		vert.lineCheck(gmOvr);
 
 	}
 	else
