@@ -60,7 +60,7 @@ void Tetrominoes::movement(int dx)
 			for (int i = 0; i < 4; i++)
 			  field[b[i].y][b[i].x] = colorNum;
 
-			colorNum = 1 + rand() % 7;
+			colorNum = 1 + rand() % 8;
 			int n = rand() % 7;
 			for (int i = 0; i < 4; i++) {
 			  a[i].x = figures[n][i] % 2;
@@ -88,10 +88,11 @@ void Tetrominoes::movement(int dx)
 			k--;
 		}
 		
-		if (field[0][N])	//technical game over. (forced game freeze)
+		if (field[0][N])	//Game Over causes window to close
 		{
 			ender = true;
 		}
 
 	}
+	
 	

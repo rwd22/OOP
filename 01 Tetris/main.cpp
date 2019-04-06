@@ -31,6 +31,8 @@ main()
 	
 	Tetrominoes tetrom;
 	
+	Multiclear special;
+	
   srand(time(0));
 
   RenderWindow window(VideoMode(320, 480), "The Game!");
@@ -81,6 +83,14 @@ main()
 	tetrom.ticking(timer, delay, colorNum);
 
     tetrom.lineCheck(gmOvr);
+	
+	//special.movement(dx);
+
+    //special.rotation(rotate);
+
+	//special.ticking(timer, delay, colorNum);
+
+    //special.lineCheck(gmOvr);
 
     dx = 0;
     rotate = 0;
@@ -99,6 +109,8 @@ main()
         s.move(28, 31); // offset
         window.draw(s);
       }
+	  
+	//colorNum = 1 + rand() % 8;
 
     for (int i = 0; i < 4; i++) {
       s.setTextureRect(IntRect(colorNum * 18, 0, 18, 18));

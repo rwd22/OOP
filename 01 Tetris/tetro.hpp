@@ -37,4 +37,9 @@ struct Tetrominoes{
 
 };
 
+// special object able to clear cross lines (+) from where it is
+struct Multiclear: Tetrominoes{
+		
+};
+
 #endif
