@@ -39,7 +39,7 @@ struct Tetrominoes{
 
 // special object able to clear cross lines (+) from where it is
 struct Multiclear: Tetrominoes{
-		
+		void sptick(float & timer, float & delay, int & colorNum);
 };
 
 #endif

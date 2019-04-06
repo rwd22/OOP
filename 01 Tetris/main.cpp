@@ -75,22 +75,30 @@ main()
 
     if (Keyboard::isKeyPressed(Keyboard::Down))
       delay = 0.05;
-
-    tetrom.movement(dx);
-
-    tetrom.rotation(rotate);
-
-	tetrom.ticking(timer, delay, colorNum);
-
-    tetrom.lineCheck(gmOvr);
+  
+	if(colorNum == 8)
+	{
 	
-	//special.movement(dx);
+		special.movement(dx);
 
-    //special.rotation(rotate);
+		special.rotation(rotate);
 
-	//special.ticking(timer, delay, colorNum);
+		special.sptick(timer, delay, colorNum);
 
-    //special.lineCheck(gmOvr);
+		special.lineCheck(gmOvr);
+
+	}
+	else
+	{
+		tetrom.movement(dx);
+
+		tetrom.rotation(rotate);
+
+		tetrom.ticking(timer, delay, colorNum);
+
+		tetrom.lineCheck(gmOvr);
+	}
+
 
     dx = 0;
     rotate = 0;
