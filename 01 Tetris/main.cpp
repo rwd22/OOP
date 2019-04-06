@@ -47,10 +47,11 @@ main()
   int colorNum = 1;
   float timer = 0, delay = 0.3;
   int checker =0;
+  bool gmOvr = false;
 
   Clock clock;
 
-  while (window.isOpen()) {
+  while (window.isOpen() && gmOvr == false) {
     float time = clock.getElapsedTime().asSeconds();
     clock.restart();
     timer += time;
@@ -76,14 +77,10 @@ main()
     tetrom.movement(dx);
 
     tetrom.rotation(rotate);
-	
-	
 
 	tetrom.ticking(timer, delay, colorNum);
-	
-	
 
-    tetrom.lineCheck();
+    tetrom.lineCheck(gmOvr);
 
     dx = 0;
     rotate = 0;

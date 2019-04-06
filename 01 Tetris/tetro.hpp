@@ -26,22 +26,14 @@ extern struct Point
 bool check();
 
 struct Tetrominoes{
-	
-	
-	
+
 	void movement(int dx);
 	
 	void rotation(bool rotate);
 	
 	void ticking(float & timer, float & delay, int & colorNum);
 	
-	void lineCheck();
-	
-	
-	
-
-
-
+	void lineCheck(bool & ender);
 
 };
 

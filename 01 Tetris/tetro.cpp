@@ -1,9 +1,6 @@
 #include "tetro.hpp"
 
-
 using namespace sf;
-
-
 
 bool
 check()
@@ -76,7 +73,7 @@ void Tetrominoes::movement(int dx)
 
 	}
 	
-	void Tetrominoes::lineCheck()
+	void Tetrominoes::lineCheck(bool & ender)
 	{
 		///////check lines//////////
 		int k = M - 1;
@@ -93,8 +90,7 @@ void Tetrominoes::movement(int dx)
 		
 		if (field[0][N])	//technical game over. (forced game freeze)
 		{
-			while(true)
-			{}
+			ender = true;
 		}
 
 	}
